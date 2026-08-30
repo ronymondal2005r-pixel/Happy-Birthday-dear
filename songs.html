@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your music corner ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#080607;color:#5b303a;font-family:Poppins,sans-serif}
+.page{width:min(100vw,480px);min-height:100vh;margin:auto;background:#fff3f6;overflow:hidden;box-shadow:0 0 50px #000;position:relative}
+.hero{min-height:39vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:58px 24px 34px;background:radial-gradient(circle at 50% 45%,#fff 0,#fff0f4 45%,#fbdde4 100%);overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#e98999 1px,transparent 1px);background-size:32px 32px;opacity:.17}
+.float{position:absolute;color:#df7081;font-size:23px;animation:float 5s ease-in-out infinite}
+.f1{top:20%;left:9%}.f2{top:29%;right:9%;animation-delay:1s}.f3{bottom:15%;left:13%;animation-delay:2s}.f4{bottom:9%;right:13%;animation-delay:3s}
+@keyframes float{50%{transform:translateY(-14px) rotate(8deg)}}
+.back{position:absolute;top:15px;left:15px;z-index:5;text-decoration:none;background:#fff;color:#b74e63;border:1px solid #e8c0c7;border-radius:22px;padding:9px 14px;font-size:9px;letter-spacing:1px;box-shadow:0 7px 18px #8f4d5a18}
+.content{position:relative;z-index:2}.seal{width:55px;height:55px;border:1px solid #dba0aa;border-radius:50%;display:grid;place-items:center;margin:0 auto 15px;background:#fff8fa;color:#c95f72;font-size:21px}
+.kicker{text-transform:uppercase;letter-spacing:4px;font-size:8px;color:#bd7180;margin-bottom:10px}
+h1{font:45px/1 "Playfair Display",serif;color:#a94456;margin:0}h1 span{display:block;font:39px "Great Vibes",cursive;color:#b65a69;margin-top:5px}
+.subtitle{font-size:9px;line-height:1.8;color:#83515c;max-width:300px;margin:12px auto 0}
+.library{padding:40px 20px 65px;background:#fff0f4}.library-head{text-align:center;margin-bottom:24px}
+.library-head h2{font:35px "Playfair Display",serif;color:#a94456;margin:0}.library-head p{font-size:9px;color:#8a5963;line-height:1.7;margin:7px auto 0;max-width:290px}
+.albums{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.album{border:1px solid #efcfd6;background:#fff;border-radius:12px;padding:10px;box-shadow:0 10px 25px #8f4d5a16;cursor:pointer;transition:.25s;text-align:left}
+.album:hover{transform:translateY(-3px);box-shadow:0 14px 30px #8f4d5a22}
+.cover{aspect-ratio:1;border-radius:9px;overflow:hidden;background:linear-gradient(145deg,#f7cbd4,#e87b8f);position:relative;display:grid;place-items:center}
+.cover img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  position:relative;
+  z-index:1;
+}.cover-fallback{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  color:#fff;
+  font:28px "Great Vibes",cursive;
+  background:linear-gradient(145deg,#f3a5b3,#d85f73);
+  z-index:0;
+}
+.album-title{font:17px "Playfair Display",serif;color:#a94456;margin:9px 3px 2px}.album-artist{font-size:8px;color:#b47a85;margin:0 3px}.tap{font-size:7px;color:#d06a7b;margin:7px 3px 2px;letter-spacing:1px;text-transform:uppercase}
+.player{display:none;min-height:70vh;position:relative;padding:40px 22px 55px;background:radial-gradient(circle at 50% 32%,#fff 0,#fff0f4 43%,#fbd9e2 100%);overflow:hidden}
+.player.show{display:block}.player:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#e98999 1px,transparent 1px);background-size:28px 28px;opacity:.12}
+.player-inner{position:relative;z-index:2;text-align:center}.headphones{font-size:31px;margin:3px 0 4px}.now{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#bd7180}
+.player h2{font:37px "Great Vibes",cursive;color:#ad5062;margin:6px 0 2px}.artist{font-size:9px;color:#8a5963}
+.record{width:180px;height:180px;margin:22px auto 17px;border-radius:50%;background:radial-gradient(circle,#fff 0 17%,#d85f73 18% 21%,#f7d4db 22% 24%,#d85f73 25% 34%,#e9b2bd 35% 37%,#d85f73 38% 48%,#f8dce2 49% 52%,#d85f73 53% 63%,#f4c3cd 64% 66%,#d85f73 67% 100%);box-shadow:0 15px 30px #9e52621f;display:grid;place-items:center}
+.record.playing{animation:spin 4s linear infinite}.record:after{content:"♥";width:48px;height:48px;border-radius:50%;background:#fff0f4;border:1px solid #e3aeb9;display:grid;place-items:center;color:#d85f73;font-size:20px}
+@keyframes spin{to{transform:rotate(360deg)}}.headphone-note{font:20px "Great Vibes",cursive;color:#b9576b;margin:5px 0 10px}
+.controls{display:flex;justify-content:center;gap:8px}.control{border:0;border-radius:22px;background:#d85f73;color:#fff;padding:11px 18px;font-size:8px;letter-spacing:1px;cursor:pointer;box-shadow:0 8px 18px #cf7c8c44}.control.secondary{background:#fff;color:#b74e63;border:1px solid #e5bcc5}
+.lyrics-area{height:230px;position:relative;margin:24px auto 0;overflow:hidden;border-top:1px solid #e8bcc5;border-bottom:1px solid #e8bcc5;background:#fff6f8cc}
+.lyrics-title{position:absolute;top:9px;left:0;right:0;font-size:7px;letter-spacing:3px;text-transform:uppercase;color:#c27b87;z-index:3}
+.lyrics-track{position:absolute;left:10px;right:10px;top:52px;text-align:center;animation:lyricsFloat 18s linear infinite}.lyrics-track p{font:19px/2 "Great Vibes",cursive;color:#b64e63;margin:0 0 18px;text-shadow:0 1px #fff}
+@keyframes lyricsFloat{from{transform:translateY(150px)}to{transform:translateY(-470px)}}.lyrics-hint{font-size:7px;color:#bd7d88;margin-top:9px}
+.switch{margin-top:18px;display:flex;justify-content:center;gap:7px;flex-wrap:wrap}.song-pill{border:1px solid #e5bbc4;background:#fff;color:#ad5b6b;border-radius:20px;padding:8px 11px;font-size:7px;cursor:pointer}.song-pill.active{background:#d85f73;color:#fff}
+.footer{text-align:center;background:#fcecf0;padding:18px;font-size:8px;letter-spacing:2px;color:#b36b77}
+@media(max-width:350px){.albums{gap:11px}.album{padding:8px}.album-title{font-size:15px}.record{width:155px;height:155px}}
+
+
+.seek-wrap{width:min(100%,330px);margin:3px auto 13px;display:flex;align-items:center;gap:8px}
+.time{font-size:7px;color:#ad6b77;min-width:28px;text-align:center;font-variant-numeric:tabular-nums}
+.seek{-webkit-appearance:none;appearance:none;flex:1;width:100%;height:4px;border-radius:10px;background:#edc8cf;outline:none;cursor:pointer}
+.seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:15px;height:15px;border-radius:50%;background:#d85f73;border:2px solid #fff;box-shadow:0 2px 6px #9e526233;cursor:pointer}
+.seek::-moz-range-thumb{width:11px;height:11px;border-radius:50%;background:#d85f73;border:2px solid #fff;box-shadow:0 2px 6px #9e526233;cursor:pointer}
+.seek:focus-visible{box-shadow:0 0 0 2px #efc2cb}
+
+
+
+.lyrics-track{top:58px;animation:none!important;transition:transform .45s ease}
+.lyrics-track p{opacity:.28;transform:scale(.94);transition:opacity .35s ease,transform .35s ease,filter .35s ease}
+.lyrics-track p.active{opacity:1;transform:scale(1.08);filter:drop-shadow(0 4px 8px #d85f7330)}
+
+
+.cute-note{height:230px;position:relative;margin:24px auto 0;overflow:hidden;border-top:1px solid #e8bcc5;border-bottom:1px solid #e8bcc5;background:linear-gradient(145deg,#fffafd,#fff0f4);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px 30px;box-shadow:inset 0 0 35px #eebdc72b}
+.note-heart{font-size:28px;color:#d85f73;animation:notePulse 1.8s ease-in-out infinite;margin-bottom:8px}
+@keyframes notePulse{50%{transform:scale(1.16)}}
+.cute-note-title{font:26px "Great Vibes",cursive;color:#b64e63;margin-bottom:10px}
+.cute-note-text{font:11px/1.9 "Playfair Display",serif;color:#85525d;max-width:290px;min-height:62px;display:flex;align-items:center;justify-content:center}
+.cute-note-small{font-size:7px;letter-spacing:1.8px;text-transform:uppercase;color:#c27b87;margin-top:9px}
+.mini-hearts{color:#d87585;font-size:13px;margin-top:12px;letter-spacing:3px}
+.note-decor{position:absolute;font:30px "Great Vibes",cursive;color:#e5a1ad;opacity:.65;animation:noteFloat 4s ease-in-out infinite}
+.note-decor.left{left:22px;top:25px}.note-decor.right{right:22px;bottom:24px;animation-delay:1.5s}
+@keyframes noteFloat{50%{transform:translateY(-9px) rotate(8deg)}}
+.cute-dots{height:9px;margin:9px auto 0;text-align:center}
+.cute-dots span{display:inline-block;width:5px;height:5px;border-radius:50%;background:#e3a5b0;margin:0 3px;transition:.3s}
+.cute-dots span.active{width:16px;border-radius:10px;background:#d85f73}
+
+</style>
+</head>
+<body>
+<main class="page">
+<section class="hero" id="top">
+<a class="back" href="index.html">← BACK</a>
+<span class="float f1">✿</span><span class="float f2">✧</span><span class="float f3">❀</span><span class="float f4">♥</span>
+<div class="content"><div class="seal">♪</div><div class="kicker">put your headphones on</div>
+<h1>Your Little <span>Music Corner</span></h1>
+<p class="subtitle">Six songs, six little feelings, and a whole lot of memories for you. ❤️</p></div>
+</section>
+
+<section class="library" id="library">
+<div class="library-head"><div class="kicker">songs I picked for you</div><h2>Favourite Songs ♡</h2>
+</div>
+<div class="albums">
+<div class="album" data-song="1"><div class="cover"><img src="album1.jpg" alt="Song 1 album cover" onerror="this.style.display='none'"><div class="cover-fallback">Song One<br>♡</div></div><div class="album-title">Treat You Better</div><div class="album-artist">Shawn Mendes</div><div class="tap">Tap to play ♪</div></div>
+<div class="album" data-song="2"><div class="cover"><img src="album2.jpg" alt="Song 2 album cover" onerror="this.style.display='none'"><div class="cover-fallback">Song Two<br>♡</div></div><div class="album-title">That's So True</div><div class="album-artist">Gracie Abrams</div><div class="tap">Tap to play ♪</div></div>
+<div class="album" data-song="3"><div class="cover"><img src="album3.jpg" alt="Song 3 album cover" onerror="this.style.display='none'"><div class="cover-fallback">Song Three<br>♡</div></div><div class="album-title">Ehesas</div><div class="album-artist">Faheem Abdullah</div><div class="tap">Tap to play ♪</div></div>
+<div class="album" data-song="4"><div class="cover"><img src="album4.jpg" alt="Song 4 album cover" onerror="this.style.display='none'"><div class="cover-fallback">Song Four<br>♡</div></div><div class="album-title">Night Changes</div><div class="album-artist">One Direction</div><div class="tap">Tap to play ♪</div></div>
+<div class="album" data-song="5"><div class="cover"><img src="album5.jpg" alt="Song 5 album cover" onerror="this.style.display='none'"><div class="cover-fallback">Song Five<br>♡</div></div><div class="album-title">That's make you beautiful</div><div class="album-artist">One Direction</div><div class="tap">Tap to play ♪</div></div>
+<div class="album" data-song="6"><div class="cover"><img src="album6.jpg" alt="Song 6 album cover" onerror="this.style.display='none'"><div class="cover-fallback">Song Six<br>♡</div></div><div class="album-title">Love Story(Juliet Version)</div><div class="album-artist">Beth McCarthy</div><div class="tap">Tap to play ♪</div></div>
+</div>
+</section>
+
+<section class="player" id="player">
+<div class="player-inner"><div class="headphones">🎧</div><div class="now">now playing</div><h2 id="songName">Your Song 01</h2><div class="artist" id="artistName">Favourite of Tharu</div>
+<div class="record" id="record"></div><div class="headphone-note" id="headphoneNote">Put your headphones on... ❤️</div>
+<div class="seek-wrap">
+  <span class="time" id="currentTime">0:00</span>
+  <input class="seek" id="seekBar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Song progress">
+  <span class="time" id="duration">0:00</span>
+</div>
+<div class="controls"><button class="control" id="playPause">PAUSE ♪</button><button class="control secondary" id="backLibrary">← SONGS</button></div>
+<div class="cute-note">
+  <div class="note-decor left">♪</div>
+  <div class="note-decor right">♫</div>
+  <div class="note-heart">♥</div>
+  <div class="cute-note-title">A Little Note For You ♡</div>
+  <div class="cute-note-text" id="cuteNote">Some songs are beautiful... but somehow they become even more special when they remind me of you. ❤️</div>
+  <div class="cute-note-small">just press play &amp; enjoy the moment ♪</div>
+  <div class="mini-hearts">♡ &nbsp; ♥ &nbsp; ♡</div>
+</div>
+<div class="cute-dots" id="cuteDots"></div>
+<div class="switch" id="switcher"></div></div>
+</section>
+<audio id="audio" preload="metadata"></audio>
+</main>
+
+<script>
+const songs={
+1:{title:"Treat You Better",artist:"Shawn Mendes",file:"song1.mp3"},
+2:{title:"That's So True",artist:"Gracie Abrams",file:"song2.mp3"},
+3:{title:"Ehesas",artist:"Faheem Abdullah",file:"song3.mp3"},
+4:{title:"Night changes",artist:"One Direction",file:"song4.mp3"},
+5:{title:"That's makes you beautiful",artist:"One Direction",file:"song5.mp3"},
+6:{title:"Love Story(Juliet Version)",artist:"Beth McCerthy",file:"song6.mp3"}
+};
+const audio=document.getElementById("audio"),player=document.getElementById("player"),record=document.getElementById("record"),songName=document.getElementById("songName"),artistName=document.getElementById("artistName"),note=document.getElementById("headphoneNote"),playPause=document.getElementById("playPause"),switcher=document.getElementById("switcher"),seekBar=document.getElementById("seekBar"),currentTime=document.getElementById("currentTime"),duration=document.getElementById("duration");
+let current=1;
+
+const cuteNotes={
+1:"This song is so special for me. this is what I always wanna tell you, that yess.... I can treat you better than anyone can. ❤️",
+2:"I remember you said that you love this song so much.... For you dear. 🌸",
+3:"I remember you love this hindi song so much, you told me. I know everything heehee. 🎧💕",
+4:"Our likings are so same right, I love this song so much but I love you more. ✨",
+5:"The song's name is that's makes you beautiful but there's not a single thing that makes you beautiful my dear. 🫶",
+6:"And if you ever wonder what I was thinking while making this... it was you. ❤️"
+};
+const cuteNote=document.getElementById("cuteNote");
+const cuteDots=document.getElementById("cuteDots");
+function renderCuteNote(){
+  cuteNote.textContent=cuteNotes[current]||cuteNotes[1];
+  cuteDots.innerHTML="";
+  Object.keys(songs).forEach(id=>{
+    const dot=document.createElement("span");
+    if(Number(id)===current) dot.className="active";
+    cuteDots.appendChild(dot);
+  });
+}
+function renderSwitcher(){switcher.innerHTML="";Object.keys(songs).forEach(id=>{const b=document.createElement("button");b.type="button";b.className="song-pill"+(Number(id)===current?" active":"");b.textContent="Song "+id;b.addEventListener("click",()=>selectSong(Number(id)));switcher.appendChild(b)})}
+function selectSong(id){if(!songs[id])return;current=id;const song=songs[id];audio.pause();audio.src=song.file;audio.load();songName.textContent=song.title;artistName.textContent=song.artist;note.textContent="Put your headphones on... ❤️";renderCuteNote();renderSwitcher();player.classList.add("show");record.classList.remove("playing");playPause.textContent="PLAY ♪";player.scrollIntoView({behavior:"smooth",block:"start"});audio.play().then(()=>{record.classList.add("playing");playPause.textContent="PAUSE ♪";note.textContent="Headphones on... enjoy this one. 🎧❤️"}).catch(()=>{note.textContent="Tap PLAY to start the song. 🎧"})}
+document.querySelectorAll(".album").forEach(card=>card.addEventListener("click",()=>selectSong(Number(card.dataset.song))));
+playPause.addEventListener("click",()=>{if(audio.paused){audio.play().then(()=>{record.classList.add("playing");playPause.textContent="PAUSE ♪";note.textContent="Headphones on... enjoy this one. 🎧❤️"}).catch(()=>{})}else{audio.pause();record.classList.remove("playing");playPause.textContent="PLAY ♪";note.textContent="Paused... tap play when you're ready. ♡"}});
+
+
+
+function formatTime(seconds){
+  if(!Number.isFinite(seconds)||seconds<0)return "0:00";
+  const mins=Math.floor(seconds/60);
+  const secs=Math.floor(seconds%60).toString().padStart(2,"0");
+  return mins+":"+secs;
+}
+audio.addEventListener("loadedmetadata",()=>{
+  seekBar.value=0;
+  currentTime.textContent="0:00";
+  duration.textContent=formatTime(audio.duration);
+});
+audio.addEventListener("timeupdate",()=>{
+  if(Number.isFinite(audio.duration)&&audio.duration>0){
+    seekBar.value=(audio.currentTime/audio.duration)*100;
+    currentTime.textContent=formatTime(audio.currentTime);
+  }
+  
+});
+seekBar.addEventListener("input",()=>{
+  if(Number.isFinite(audio.duration)&&audio.duration>0){
+    audio.currentTime=(Number(seekBar.value)/100)*audio.duration;
+    currentTime.textContent=formatTime(audio.currentTime);
+  }
+});
+document.getElementById("backLibrary").addEventListener("click",()=>{audio.pause();record.classList.remove("playing");player.classList.remove("show");document.getElementById("library").scrollIntoView({behavior:"smooth"})});
+audio.addEventListener("ended",()=>{record.classList.remove("playing");playPause.textContent="PLAY ♪";note.textContent="That song ended... choose another one. ♡"});
+renderCuteNote();renderSwitcher();
+</script>
+</body>
+</html>
