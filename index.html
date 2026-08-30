@@ -73,12 +73,35 @@ button{border:0;background:#d85f73;color:white;padding:12px 25px;border-radius:3
 .cake-top-btn{background:rgba(255,255,255,.92);color:#b74e63;border:1px solid #e8b8c2;border-radius:22px;padding:9px 15px;font-family:Poppins,sans-serif;font-size:9px;letter-spacing:1.2px;box-shadow:0 7px 18px rgba(143,77,90,.16);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);cursor:pointer}
 .cake-top-btn:hover,.letter-top-btn:hover{transform:translateY(-1px)}
 @media(max-width:360px){.top-buttons{right:9px;gap:4px}.top-buttons .letter-top-btn,.cake-top-btn{padding:8px 10px;font-size:8px}}
+
+.songs-top-btn{
+  background:rgba(255,255,255,.92);
+  color:#b74e63;
+  border:1px solid #e8b8c2;
+  border-radius:22px;
+  padding:9px 15px;
+  font-family:Poppins,sans-serif;
+  font-size:9px;
+  letter-spacing:1.2px;
+  box-shadow:0 7px 18px rgba(143,77,90,.16);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  cursor:pointer;
+  transition:.25s;
+}
+.songs-top-btn:hover{transform:translateY(-1px)}
+@media(max-width:360px){
+  .top-buttons{right:9px;gap:4px}
+  .top-buttons .letter-top-btn,.cake-top-btn,.songs-top-btn{padding:8px 10px;font-size:8px}
+}
+
 </style>
 </head>
 <body>
 <div class="top-buttons">
 <button class="letter-top-btn" onclick="window.location.href='letter.html'">💌 Letter</button>
 <button class="cake-top-btn" onclick="window.location.href='cake.html'">🎂 Cake</button>
+<button class="songs-top-btn" onclick="window.location.href='songs.html'">🎵 Songs</button>
 </div>
 <main class="site">
 <section class="hero reveal">
@@ -88,12 +111,13 @@ button{border:0;background:#d85f73;color:white;padding:12px 25px;border-radius:3
 <div class="kicker">a little surprise for you</div>
 <h1>Happy<br>Birthday <span>Tharu, My Love</span></h1>
 <p class="subtitle">Today is all about the most precious girl in my universe. ❤️</p>
-<div class="ribbon">♡ MADE JUST FOR YOU ♡</div>
+<div class="ribbon">♡ MADE JUST FOR THARU ♡</div>
 </div>
 </section>
 
 <section class="letter reveal">
 <div class="section-inner fade">
+<div class="kicker">just for you, Tharu</div>
 <div class="paper">
 <h3>My Dearest Tharu,</h3>
 <p>
@@ -109,29 +133,31 @@ On your birthday, I only wish that you keep smiling, keep dreaming,
 and always remember that you have someone who will keep cheering for
 you and loving you with all his heart.
 </p>
-<div class="signature">Forever yours, My Dear ♡</div>
+<div class="signature">Forever yours, Tharu ♡</div>
 </div>
 </div>
 </section>
 
 <section class="moments reveal">
 <div class="section-inner fade">
-<div class="kicker">little pieces of you</div>
-<h2>Cute Little Kitty Moments</h2>
-<p style="text-align:center;margin-top:8px">A little collection of memories of my favourite girl ♡</p>
+<div class="kicker">little pieces of us</div>
+<h2>Our Sweet Moments</h2>
+<p style="text-align:center;margin-top:8px">A little collection of memories with my favourite girl ♡</p>
 <div class="gallery">
-<div class="photo" onclick="openPhoto('1.jpeg')"><img src="1.jpeg" onerror="this.src='https://placehold.co/500x500/f6cfd7/9b5362?text=Tharu+%E2%99%A5+1'"></div>
-<div class="photo" onclick="openPhoto('2.jpeg')"><img src="2.jpeg" onerror="this.src='https://placehold.co/500x500/f6cfd7/9b5362?text=Tharu+%E2%99%A5+2'"></div>
-<div class="photo" onclick="openPhoto('3.jpeg')"><img src="3.jpeg" onerror="this.src='https://placehold.co/500x500/f6cfd7/9b5362?text=Tharu+%E2%99%A5+3'"></div>
-<div class="photo" onclick="openPhoto('4.jpeg')"><img src="4.jpeg" onerror="this.src='https://placehold.co/500x500/f6cfd7/9b5362?text=Tharu+%E2%99%A5+4'"></div>
-<div class="photo" onclick="openPhoto('5.jpeg')"><img src="5.jpeg" onerror="this.src='https://placehold.co/500x500/f6cfd7/9b5362?text=Tharu+%E2%99%A5+5'"></div>
-<div class="photo" onclick="openPhoto('6.jpeg')"><img src="6.jpeg" onerror="this.src='https://placehold.co/500x500/f6cfd7/9b5362?text=Tharu+%E2%99%A5+6'"></div>
+<div class="photo" onclick="openPhoto('photos/photo1.jpg')"><img src="1.jpeg" onerror="this.src='https://placehold.co/500x500/f6cfd7/9b5362?text=Tharu+%E2%99%A5+1'"></div>
+<div class="photo" onclick="openPhoto('photos/photo2.jpg')"><img src="2.jpeg" onerror="this.src='https://placehold.co/500x500/f6cfd7/9b5362?text=Tharu+%E2%99%A5+2'"></div>
+<div class="photo" onclick="openPhoto('photos/photo3.jpg')"><img src="3.jpeg" onerror="this.src='https://placehold.co/500x500/f6cfd7/9b5362?text=Tharu+%E2%99%A5+3'"></div>
+<div class="photo" onclick="openPhoto('photos/photo4.jpg')"><img src="4.jpeg" onerror="this.src='https://placehold.co/500x500/f6cfd7/9b5362?text=Tharu+%E2%99%A5+4'"></div>
+<div class="photo" onclick="openPhoto('photos/photo5.jpg')"><img src="5.jpeg" onerror="this.src='https://placehold.co/500x500/f6cfd7/9b5362?text=Tharu+%E2%99%A5+5'"></div>
+<div class="photo" onclick="openPhoto('photos/photo6.jpg')"><img src="6.jpeg" onerror="this.src='https://placehold.co/500x500/f6cfd7/9b5362?text=Tharu+%E2%99%A5+6'"></div>
 </div>
+<div class="tip">Replace the six photos with your favourite memories of Tharu ♡</div>
 </div>
 </section>
 
 <section class="message reveal">
 <div class="section-inner fade">
+<div class="kicker">for Tharu</div>
 <div class="bigquote">“You are one of the most beautiful chapters of my life.”</div>
 <p>Here's to another year of your beautiful smile, our laughter, our little adventures, our late-night talks and all the memories we haven't made yet.</p>
 </div>
@@ -150,7 +176,7 @@ you and loving you with all his heart.
 <section class="heart-section reveal">
 <div class="section-inner fade">
 <div class="heart-title">My Heart Is Yours</div>
-<div class="heart-text">You & Me, Now &amp; Always<br>Today, tomorrow, and every beautiful day after that. ❤️</div>
+<div class="heart-text">Tharu, Now &amp; Always<br>Today, tomorrow, and every beautiful day after that. ❤️</div>
 <div style="text-align:center"><button class="heart-btn" onclick="showLove()">Open My Heart ♡</button></div>
 </div>
 </section>
@@ -171,15 +197,15 @@ you and loving you with all his heart.
 <div class="kicker" style="color:#ffd9df">for my favourite person</div>
 <h2>Happy Birthday,<br>Tharu ❤️</h2>
 <p>May your smile stay this beautiful forever.<br>And may I get to see it for a very, very long time.</p>
-<div style="text-align:center"><span style="font:32px 'Great Vibes',cursive">I love you, My love ♡</span></div>
+<div style="text-align:center"><span style="font:32px 'Great Vibes',cursive">I love you, Tharu ♡</span></div>
 </div>
 </section>
-<div class="footer">MADE WITH LOVE OF YOUR DONKEY • ESPECIALLY FOR MY PRINCESS ELIZABETH ♡</div>
+<div class="footer">MADE WITH LOVE • ESPECIALLY FOR THARU ♡</div>
 </main>
 
 <button class="music" id="musicBtn" onclick="toggleMusic()">♪</button>
 <div class="modal" id="modal" onclick="closePhoto()"><div class="modal-box" onclick="event.stopPropagation()"><button class="close" onclick="closePhoto()">×</button><img id="modalImg"></div></div>
-<audio id="music" loop><source src="bday.mp3" type="audio/mpeg"></audio>
+<audio id="music" loop><source src="music.mp3" type="audio/mpeg"></audio>
 
 <script>
 const sections=document.querySelectorAll('.reveal');
@@ -188,7 +214,7 @@ sections.forEach(s=>io.observe(s));
 function openPhoto(src){document.getElementById('modalImg').src=src;document.getElementById('modal').classList.add('open')}
 function closePhoto(){document.getElementById('modal').classList.remove('open')}
 function blow(){const cake=document.querySelector('.cake');cake.textContent='🎉💗✨';showLove();setTimeout(()=>cake.textContent='🎂',2800)}
-function showLove(){for(let i=0;i<24;i++){const h=document.createElement('div');h.textContent=Math.random()>.35?'❤':'✦';h.style.cssText=`position:fixed;left:${Math.random()*100}vw;top:105vh;font-size:${14+Math.random()*25}px;color:#ff8fa3;z-index:30;transition:3s ease-out;pointer-events:none`;document.body.appendChild(h);requestAnimationFrame(()=>h.style.top='-10vh');setTimeout(()=>h.remove(),3200)}}
+function showLove(){for(let i=0;i<24;i++){const h=document.createElement('div');h.textContent=Math.random()>.35?'❤':'✦';h.style.cssText=`position:fixed;left:${Math.random()*100}vw;top:105vh;font-size:${14+Math.random()*25}px;color:#fff;z-index:30;transition:3s ease-out;pointer-events:none`;document.body.appendChild(h);requestAnimationFrame(()=>h.style.top='-10vh');setTimeout(()=>h.remove(),3200)}}
 function finalWish(){alert('💌 Tharu, if I could give you one thing today, it would be the ability to see yourself through my eyes — so you could see just how incredibly special you are. Happy Birthday, my love. ❤️')}
 let playing=false;
 function toggleMusic(){const m=document.getElementById('music');if(!playing){m.play().catch(()=>{});playing=true;document.getElementById('musicBtn').textContent='❚❚'}else{m.pause();playing=false;document.getElementById('musicBtn').textContent='♪'}}
