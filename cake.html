@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Cake for Tharu 🎂❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Poppins,sans-serif}
+body{background:#080607;color:#5b303a}
+.page{width:min(100vw,480px);min-height:100vh;margin:auto;overflow:hidden;background:#fff3f6;box-shadow:0 0 50px #000;position:relative}
+.scene{min-height:100svh;position:relative;display:flex;align-items:center;justify-content:center;padding:65px 22px 40px;overflow:hidden;background:radial-gradient(circle at 50% 42%,#fff 0,#fff1f5 42%,#fbd9e2 100%)}
+.scene:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#e98999 1px,transparent 1px);background-size:31px 31px;opacity:.16}
+.scene:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 20% 20%,#fff 0 2px,transparent 3px),radial-gradient(circle at 78% 27%,#f18b9d 0 2px,transparent 3px),radial-gradient(circle at 73% 78%,#fff 0 2px,transparent 3px);background-size:120px 120px,150px 150px,180px 180px;opacity:.65}
+.back{position:absolute;top:15px;left:15px;z-index:30;text-decoration:none;color:#b74e63;background:#fff;border:1px solid #e7b9c2;border-radius:22px;padding:9px 14px;font-size:9px;letter-spacing:1px;box-shadow:0 7px 18px #8f4d5a18}
+.title{position:absolute;top:58px;left:0;right:0;text-align:center;z-index:4}
+.kicker{text-transform:uppercase;letter-spacing:4px;font-size:8px;color:#bd7180;margin-bottom:9px}
+h1{font:40px "Playfair Display",serif;color:#a94456;margin:0}
+h1 span{display:block;font:31px "Great Vibes",cursive;color:#b65a69;margin-top:3px}
+.subtitle{font-size:9px;color:#87545f;margin-top:8px}
+.cake-area{position:relative;z-index:5;width:100%;max-width:330px;margin-top:75px;text-align:center}
+.cake-wrap{height:315px;position:relative;display:flex;align-items:flex-end;justify-content:center}
+.cake{position:relative;width:255px;height:170px;transition:transform .7s ease;filter:drop-shadow(0 15px 15px #a94f642d)}
+.cake.tremble{animation:tremble .35s ease}
+@keyframes tremble{25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}
+.plate{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:290px;height:23px;border-radius:50%;background:#fff;border:2px solid #edc5cc;box-shadow:0 9px 12px #9c50601c}
+.layer.bottom{position:absolute;left:12px;bottom:18px;width:231px;height:88px;border-radius:13px 13px 18px 18px;background:linear-gradient(#f49aaa,#df657b);box-shadow:inset 0 12px #ffbdc8}
+.layer.top{position:absolute;left:26px;bottom:95px;width:203px;height:64px;border-radius:50% 50% 12px 12px;background:linear-gradient(#ffd8df,#f28b9b);border-bottom:8px solid #e36c81}
+.icing{position:absolute;left:35px;bottom:87px;width:185px;height:25px;border-radius:50%;background:#fff3f5;box-shadow:0 2px 0 #e7aab5}
+.drip{position:absolute;width:20px;height:27px;background:#fff3f5;border-radius:0 0 12px 12px;top:15px}
+.d1{left:35px}.d2{left:72px;height:20px}.d3{left:112px;height:29px}.d4{left:151px;height:18px}
+.dot{position:absolute;width:8px;height:8px;border-radius:50%;background:#e75f77}.p1{left:58px;bottom:48px}.p2{left:101px;bottom:64px}.p3{left:144px;bottom:45px}.p4{left:181px;bottom:59px}
+.cherry{position:absolute;left:50%;bottom:135px;transform:translateX(-50%);font-size:23px}
+.candles{position:absolute;left:50%;bottom:145px;transform:translateX(-50%);display:flex;gap:32px;z-index:6}
+.candle-box{width:18px;height:72px;position:relative;transition:.35s}
+.candle-stick{width:16px;height:52px;margin:14px auto 0;border-radius:4px;background:repeating-linear-gradient(135deg,#fff 0 7px,#f27b8e 7px 12px);box-shadow:0 2px 4px #9c4e5e33}
+.flame{position:absolute;top:0;left:50%;transform:translateX(-50%);width:16px;height:23px;border-radius:50% 50% 50% 50%;background:radial-gradient(circle at 50% 65%,#fff 0 22%,#ffd65e 23% 52%,#f07863 53% 100%);filter:drop-shadow(0 0 7px #ff9a65);animation:flicker .7s infinite alternate}
+@keyframes flicker{from{transform:translateX(-50%) scale(.9) rotate(-3deg)}to{transform:translateX(-50%) scale(1.08) rotate(3deg)}}
+.candle-box.blown .flame{opacity:0;animation:none}
+.smoke{position:absolute;top:-4px;left:50%;width:5px;height:20px;opacity:0;border-radius:50%;border-left:2px solid #aaa;transform:translateX(-50%)}
+.candle-box.blown .smoke{animation:smoke 1.8s ease-out forwards}
+@keyframes smoke{0%{opacity:.5;transform:translate(-50%,0) scale(.6)}100%{opacity:0;transform:translate(-50%,-35px) scale(2)}}
+.buttons{position:relative;z-index:8;display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:13px}
+.btn{border:0;border-radius:25px;background:#d85f73;color:#fff;padding:11px 16px;font-size:8px;letter-spacing:1px;box-shadow:0 8px 20px #cf7c8c44;cursor:pointer;transition:.25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.hidden{display:none}
+.cut{background:#b9445c;padding:13px 28px;font-weight:600;display:none}
+.cut.show{display:inline-block;animation:appear .7s ease}
+@keyframes appear{from{opacity:0;transform:translateY(15px) scale(.8)}to{opacity:1;transform:none}}
+.note{position:relative;z-index:7;text-align:center;font:17px "Great Vibes",cursive;color:#b9576b;margin-top:13px;min-height:25px}
+.hint{position:relative;z-index:7;text-align:center;font-size:8px;line-height:1.6;color:#a86c78;margin:6px auto 0;max-width:280px}
+.decoration{position:absolute;z-index:3;font-size:22px;animation:float 4.5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-17px) rotate(8deg)}}
+.dh1{top:25%;left:8%}.dh2{top:30%;right:8%;animation-delay:1s}.dh3{bottom:23%;left:9%;animation-delay:2s}.dh4{bottom:15%;right:10%;animation-delay:3s}
+.burst,.balloon-layer{position:absolute;inset:0;pointer-events:none;z-index:20;overflow:hidden}
+.confetti{position:absolute;width:8px;height:15px;border-radius:2px;top:-20px;animation:fall 3.2s ease-in forwards}
+@keyframes fall{to{transform:translateY(115vh) rotate(720deg);opacity:0}}
+.balloon{position:absolute;bottom:-130px;width:48px;height:62px;border-radius:50% 50% 45% 45%;animation:rise 4.5s ease-in forwards}
+.balloon:before{content:"";position:absolute;left:50%;bottom:-38px;width:1px;height:40px;background:#9d6670}
+.balloon:after{content:"";position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);border-left:5px solid transparent;border-right:5px solid transparent;border-top:9px solid currentColor}
+@keyframes rise{to{transform:translateY(-125vh) rotate(10deg);opacity:0}}
+.big-heart{position:absolute;bottom:-50px;color:#e85e73;font-size:25px;animation:heartRise 3.8s ease-out forwards}
+@keyframes heartRise{to{transform:translateY(-120vh) rotate(25deg) scale(1.6);opacity:0}}
+.message{display:none;position:absolute;z-index:25;inset:0;align-items:center;justify-content:center;background:#0007;padding:25px}
+.message.show{display:flex}
+.message-card{width:min(90%,370px);background:#fff4f7;border:1px solid #f1c5ce;border-radius:12px;padding:32px 25px;text-align:center;box-shadow:0 20px 60px #0005}
+.message-card .small{font-size:8px;letter-spacing:3px;color:#c16b7b;text-transform:uppercase}
+.message-card h2{font:38px "Great Vibes";color:#b54c63;margin:10px 0}
+.message-card p{font:11px/1.9 "Playfair Display",serif;color:#754953}
+.close{margin-top:20px;border:0;background:#d85f73;color:#fff;border-radius:22px;padding:10px 20px;font-size:8px;letter-spacing:1px}
+</style>
+</head>
+<body>
+<main class="page">
+<section class="scene">
+<a class="back" href="index.html">← BACK</a>
+
+<div class="title">
+<div class="kicker">a little birthday magic</div>
+<h1>Make a Wish <span>Tharu ❤️</span></h1>
+<div class="subtitle">Three candles. One beautiful birthday girl. One very special wish.</div>
+</div>
+
+<div class="decoration dh1">✿</div>
+<div class="decoration dh2">♥</div>
+<div class="decoration dh3">✦</div>
+<div class="decoration dh4">❀</div>
+
+<div class="cake-area">
+<div class="cake-wrap">
+<div class="plate"></div>
+<div class="cake" id="cake">
+<div class="layer bottom"></div>
+<div class="layer top"></div>
+<div class="icing"><span class="drip d1"></span><span class="drip d2"></span><span class="drip d3"></span><span class="drip d4"></span></div>
+<div class="dot p1"></div><div class="dot p2"></div><div class="dot p3"></div><div class="dot p4"></div>
+<div class="cherry">🍓</div>
+<div class="candles">
+<div class="candle-box" id="c1"><div class="flame"></div><div class="smoke"></div><div class="candle-stick"></div></div>
+<div class="candle-box" id="c2"><div class="flame"></div><div class="smoke"></div><div class="candle-stick"></div></div>
+<div class="candle-box" id="c3"><div class="flame"></div><div class="smoke"></div><div class="candle-stick"></div></div>
+</div>
+</div>
+</div>
+
+<div class="note" id="note">Three little flames are waiting for you... ♡</div>
+<div class="buttons" id="blowButtons">
+<button class="btn" onclick="blow(1)">BLOW CANDLE 1 ✨</button>
+<button class="btn" onclick="blow(2)">BLOW CANDLE 2 ✨</button>
+<button class="btn" onclick="blow(3)">BLOW CANDLE 3 ✨</button>
+</div>
+<div class="buttons">
+<button class="btn cut" id="cutBtn" onclick="cutCake()">CUT THE CAKE 🎂</button>
+</div>
+<div class="hint" id="hint">Blow all three candles to unlock the cake-cutting surprise.</div>
+</div>
+
+<div class="burst" id="burst"></div>
+<div class="balloon-layer" id="balloons"></div>
+
+<div class="message" id="message">
+<div class="message-card">
+<div class="small">the sweetest wish</div>
+<h2>Happy Birthday, Tharu ❤️</h2>
+<p>The candles are gone, the cake is cut, and the celebration has officially begun! May this year bring you every little thing that makes your heart happy.</p>
+<button class="close" onclick="document.getElementById('message').classList.remove('show')">KEEP CELEBRATING ♡</button>
+</div>
+</div>
+</section>
+</main>
+
+<script>
+const blown=[false,false,false];
+
+function blow(n){
+  const candle=document.getElementById('c'+n);
+  if(blown[n-1]) return;
+  blown[n-1]=true;
+  candle.classList.add('blown');
+
+  const cake=document.getElementById('cake');
+  cake.classList.add('tremble');
+  setTimeout(()=>cake.classList.remove('tremble'),350);
+
+  const count=blown.filter(Boolean).length;
+  document.getElementById('note').textContent=
+    count===1?'One candle down... make another wish ♡':
+    count===2?'Two candles down... one more, Tharu! ✨':
+    'All three candles are blown! Make your biggest wish. 💗';
+
+  if(count===3){
+    document.querySelectorAll('#blowButtons .btn').forEach(b=>b.classList.add('hidden'));
+    document.getElementById('cutBtn').classList.add('show');
+    document.getElementById('hint').textContent='Your surprise is ready... now cut the cake! 🎂';
+    smallSparkles();
+  }
+}
+
+function smallSparkles(){
+  const box=document.getElementById('burst');
+  for(let i=0;i<25;i++){
+    const s=document.createElement('span');
+    s.className='confetti';
+    s.style.left=(10+Math.random()*80)+'%';
+    s.style.animationDelay=(Math.random()*.8)+'s';
+    s.style.background=['#e85e73','#f39aaa','#d85f73','#ffd5dd','#b9445c'][Math.floor(Math.random()*5)];
+    s.style.transform=`rotate(${Math.random()*180}deg)`;
+    box.appendChild(s);
+    setTimeout(()=>s.remove(),4000);
+  }
+}
+
+function cutCake(){
+  document.getElementById('cutBtn').classList.remove('show');
+  document.getElementById('note').textContent='🎉 HAPPY BIRTHDAY THARU! 🎉';
+  document.getElementById('hint').textContent='Okay... now the real celebration starts! ❤️';
+  bigCelebration();
+  setTimeout(()=>document.getElementById('message').classList.add('show'),1100);
+}
+
+function bigCelebration(){
+  const burst=document.getElementById('burst');
+  const balloons=document.getElementById('balloons');
+
+  // Confetti / party poppers
+  for(let i=0;i<120;i++){
+    const c=document.createElement('span');
+    c.className='confetti';
+    c.style.left=Math.random()*100+'%';
+    c.style.animationDelay=Math.random()*1.1+'s';
+    c.style.animationDuration=(2.4+Math.random()*2)+'s';
+    c.style.background=['#e85e73','#f39aaa','#d85f73','#ffd5dd','#b9445c','#ffffff'][Math.floor(Math.random()*6)];
+    c.style.width=(5+Math.random()*7)+'px';
+    c.style.height=(8+Math.random()*14)+'px';
+    c.style.transform=`rotate(${Math.random()*360}deg)`;
+    burst.appendChild(c);
+    setTimeout(()=>c.remove(),5200);
+  }
+
+  // Balloons
+  const balloonColors=['#f47f95','#e85e73','#f7b4c0','#d85f73','#ffced7'];
+  for(let i=0;i<18;i++){
+    const b=document.createElement('span');
+    b.className='balloon';
+    b.style.left=Math.random()*100+'%';
+    b.style.background=balloonColors[i%balloonColors.length];
+    b.style.color=balloonColors[i%balloonColors.length];
+    b.style.animationDelay=(Math.random()*1.4)+'s';
+    b.style.transform=`scale(${.75+Math.random()*.55})`;
+    balloons.appendChild(b);
+    setTimeout(()=>b.remove(),6200);
+  }
+
+  // Hearts
+  for(let i=0;i<45;i++){
+    const h=document.createElement('span');
+    h.className='big-heart';
+    h.textContent=Math.random()>.25?'♥':'✦';
+    h.style.left=Math.random()*100+'%';
+    h.style.color=['#e85e73','#f47f95','#d85f73','#ffffff'][Math.floor(Math.random()*4)];
+    h.style.fontSize=(12+Math.random()*25)+'px';
+    h.style.animationDelay=(Math.random()*1.2)+'s';
+    burst.appendChild(h);
+    setTimeout(()=>h.remove(),5200);
+  }
+}
+</script>
+</body>
+</html>
