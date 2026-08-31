@@ -40,6 +40,19 @@ h1 span{display:block;font:42px/1.05 "Great Vibes",cursive;color:#b65a69;margin-
 .control.secondary{background:#fff;color:#b74e63;border:1px solid #e6b9c2}
 .footer{text-align:center;background:#fcecf0;padding:18px;font-size:8px;letter-spacing:2px;color:#b36b77}
 .hearts{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+/* Scratch card */
+.scratch-section{margin:42px auto 5px;text-align:center;padding-top:26px;border-top:1px dashed #e7bdc6}
+.scratch-kicker{text-transform:uppercase;letter-spacing:3px;font-size:8px;color:#bd7180;margin-bottom:7px}
+.scratch-title{font:31px "Great Vibes",cursive;color:#ad5062;margin:0 0 5px}
+.scratch-sub{font:9px/1.7 Poppins,sans-serif;color:#83515c;margin:0 auto 16px;max-width:250px}
+.scratch-wrap{position:relative;width:min(100%,300px);height:180px;margin:auto;border-radius:15px;overflow:hidden;border:1px solid #e8c2ca;box-shadow:0 10px 24px #8f4d5a18;background:#fff8fa}
+.scratch-message{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:25px;font:25px/1.25 "Great Vibes",cursive;color:#ad5062;background:#fff8fa}
+.scratch-message small{display:block;font:8px/1.7 Poppins,sans-serif;letter-spacing:1px;color:#b47782;margin-top:8px}
+#scratchCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab}
+.scratch-hint{font-size:7px;color:#b47782;letter-spacing:1px;margin-top:10px}
+.scratch-reveal{font:21px "Great Vibes",cursive;color:#c35f72;margin-top:9px;opacity:0;transform:translateY(5px);transition:.5s}
+.scratch-reveal.show{opacity:1;transform:none}
+
 </style>
 </head>
 <body>
@@ -59,6 +72,7 @@ h1 span{display:block;font:42px/1.05 "Great Vibes",cursive;color:#b65a69;margin-
 <div class="hearts" id="hearts"></div>
 <div class="paper">
 <h2>My Dearest Tharu,</h2>
+<div class="date">A LETTER WRITTEN JUST FOR YOU ♡</div>
 
 <!--
 TYPE YOUR REAL LETTER BELOW.
@@ -81,6 +95,27 @@ You can make this as long as you like.
 
 <div class="signature">Forever yours, ♡</div>
 </div>
+
+
+<div class="scratch-section">
+  <div class="scratch-kicker">before you leave...</div>
+  <div class="scratch-title">There's one tiny thing hidden ♡</div>
+  <p class="scratch-sub">Use your finger to scratch the card and reveal your little message.</p>
+  <div class="scratch-wrap">
+    <div class="scratch-message">
+      <div>
+        If I had to choose you all over again,<br>
+        I'd still choose you.<br>
+        <span>Every single time. ❤️</span>
+        <small>— just a little truth from my heart —</small>
+      </div>
+    </div>
+    <canvas id="scratchCanvas"></canvas>
+  </div>
+  <div class="scratch-hint">✦ SCRATCH AWAY THE PINK ✦</div>
+  <div class="scratch-reveal" id="scratchReveal">You found it, Tharu. ♡</div>
+</div>
+
 <div class="controls">
 </div>
 </section>
@@ -107,6 +142,40 @@ function saveLetter(){
     setTimeout(()=>h.remove(),2700);
   }
 }
+
+/* Scratch card interaction */
+(function(){
+  const canvas=document.getElementById('scratchCanvas');
+  if(!canvas)return;
+  const wrap=canvas.parentElement;
+  const ctx=canvas.getContext('2d');
+  let drawing=false, scratched=0, lastX=0,lastY=0;
+  function size(){
+    const r=wrap.getBoundingClientRect(),d=window.devicePixelRatio||1;
+    canvas.width=r.width*d; canvas.height=r.height*d;
+    canvas.style.width=r.width+'px'; canvas.style.height=r.height+'px';
+    ctx.setTransform(d,0,0,d,0,0);
+    ctx.globalCompositeOperation='source-over';
+    ctx.fillStyle='#d9a0aa'; ctx.fillRect(0,0,r.width,r.height);
+    const g=ctx.createLinearGradient(0,0,r.width,r.height);
+    g.addColorStop(0,'#e4b4bd');g.addColorStop(.5,'#d58d9a');g.addColorStop(1,'#e8bec6');
+    ctx.fillStyle=g;ctx.fillRect(0,0,r.width,r.height);
+    ctx.fillStyle='rgba(255,255,255,.42)';ctx.font='600 10px Poppins,sans-serif';ctx.textAlign='center';
+    ctx.fillText('SCRATCH ME ♡',r.width/2,r.height/2+4);
+    scratched=0;document.getElementById('scratchReveal').classList.remove('show');
+  }
+  function pos(e){const r=canvas.getBoundingClientRect();const p=e.touches?e.touches[0]:e;return [p.clientX-r.left,p.clientY-r.top]}
+  function start(e){e.preventDefault();drawing=true;[lastX,lastY]=pos(e);scratch(e)}
+  function end(){drawing=false;check()}
+  function scratch(e){if(!drawing)return;e.preventDefault();const [x,y]=pos(e);ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(x,y);ctx.lineWidth=30;ctx.lineCap='round';ctx.stroke();lastX=x;lastY=y;scratched+=1;if(scratched%10===0)check()}
+  function check(){
+    try{const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;let clear=0,total=0;for(let i=3;i<data.length;i+=32){total++;if(data[i]<80)clear++}if(clear/total>.48){canvas.style.transition='opacity .7s';canvas.style.opacity='0';document.getElementById('scratchReveal').classList.add('show');setTimeout(()=>canvas.remove(),800)}}catch(e){}
+  }
+  canvas.addEventListener('mousedown',start);canvas.addEventListener('mousemove',scratch);window.addEventListener('mouseup',end);
+  canvas.addEventListener('touchstart',start,{passive:false});canvas.addEventListener('touchmove',scratch,{passive:false});canvas.addEventListener('touchend',end,{passive:false});
+  window.addEventListener('resize',size);size();
+})();
+
 function clearLetter(){
   if(confirm('Reset the letter to the sample text?')){
     localStorage.removeItem(key);
